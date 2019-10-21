@@ -830,7 +830,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// on a disconnected node (IE 9)
 			support.disconnectedMatch = matches.call( el, "*" );
 
-			// This should fail with an exception
+			// This should fail with an exceptions
 			// Gecko does not error, returns false instead
 			matches.call( el, "[s!='']:x" );
 			rbuggyMatches.push( "!=", pseudos );

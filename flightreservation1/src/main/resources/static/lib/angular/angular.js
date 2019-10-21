@@ -1498,7 +1498,7 @@ function startingTag(element) {
 /////////////////////////////////////////////////
 
 /**
- * Tries to decode the URI component without throwing an exception.
+ * Tries to decode the URI component without throwing an exceptions.
  *
  * @private
  * @param str value potential URI component to check.
@@ -10237,7 +10237,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
     }
 
     /**
-     * looks up the directive and decorates it with exception handling and proper parameters. We
+     * looks up the directive and decorates it with exceptions handling and proper parameters. We
      * call this the boundDirective.
      *
      * @param {string} name name of the directive to look up.
@@ -10791,7 +10791,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
               compare = simpleCompare;
             }
             parentSet = parentGet.assign || function() {
-              // reset the change, or we will throw this exception on every $digest
+              // reset the change, or we will throw this exceptions on every $digest
               lastValue = destination[scopeName] = parentGet(scope);
               throw $compileMinErr('nonassign',
                   'Expression \'{0}\' in attribute \'{1}\' used with directive \'{2}\' is non-assignable!',
@@ -11259,7 +11259,7 @@ function $$IsDocumentHiddenProvider() {
  * @this
  *
  * @description
- * Any uncaught exception in AngularJS expressions is delegated to this service.
+ * Any uncaught exceptions in AngularJS expressions is delegated to this service.
  * The default implementation simply delegates to `$log.error` which logs it into
  * the browser console.
  *
@@ -11276,9 +11276,9 @@ function $$IsDocumentHiddenProvider() {
  *   angular.
  *     module('exceptionOverwrite', []).
  *     factory('$exceptionHandler', ['$log', 'logErrorsToBackend', function($log, logErrorsToBackend) {
- *       return function myExceptionHandler(exception, cause) {
- *         logErrorsToBackend(exception, cause);
- *         $log.warn(exception, cause);
+ *       return function myExceptionHandler(exceptions, cause) {
+ *         logErrorsToBackend(exceptions, cause);
+ *         $log.warn(exceptions, cause);
  *       };
  *     }]);
  * ```
@@ -11291,7 +11291,7 @@ function $$IsDocumentHiddenProvider() {
  * If you wish, you can manually delegate exceptions, e.g.
  * `try { ... } catch(e) { $exceptionHandler(e); }`
  *
- * @param {Error} exception Exception associated with the error.
+ * @param {Error} exceptions Exception associated with the error.
  * @param {string=} cause Optional information about the context in which
  *       the error was thrown.
  *
@@ -17090,7 +17090,7 @@ function $ParseProvider() {
  *
  * Note: progress/notify callbacks are not currently supported via the ES6-style interface.
  *
- * Note: unlike ES6 behavior, an exception thrown in the constructor function will NOT implicitly reject the promise.
+ * Note: unlike ES6 behavior, an exceptions thrown in the constructor function will NOT implicitly reject the promise.
  *
  * However, the more traditional CommonJS-style usage is still available, and documented below.
  *
@@ -17552,7 +17552,7 @@ function qFactory(nextTick, exceptionHandler, errorOnUnhandledRejections) {
    *   });
    * ```
    *
-   * @param {*} reason Constant, message, exception or an object representing the rejection reason.
+   * @param {*} reason Constant, message, exceptions or an object representing the rejection reason.
    * @returns {Promise} Returns a promise that was already resolved as rejected with the `reason`.
    */
   function reject(reason) {
@@ -18044,7 +18044,7 @@ function $RootScopeProvider() {
        *   times by {@link ng.$rootScope.Scope#$digest $digest()}. That is, `watchExpression` should be
        *   [idempotent](http://en.wikipedia.org/wiki/Idempotence).)
        * - The `listener` is called only when the value from the current `watchExpression` and the
-       *   previous call to `watchExpression` are not equal (with the exception of the initial run,
+       *   previous call to `watchExpression` are not equal (with the exceptions of the initial run,
        *   see below). Inequality is determined according to reference inequality,
        *   [strict comparison](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators)
        *    via the `!==` Javascript operator, unless `objectEquality == true`
@@ -18895,7 +18895,7 @@ function $RootScopeProvider() {
        * `$apply()` is used to execute an expression in AngularJS from outside of the AngularJS
        * framework. (For example from browser DOM events, setTimeout, XHR or third party libraries).
        * Because we are calling into the AngularJS framework we need to perform proper scope life
-       * cycle of {@link ng.$exceptionHandler exception handling},
+       * cycle of {@link ng.$exceptionHandler exceptions handling},
        * {@link ng.$rootScope.Scope#$digest executing watches}.
        *
        * **Life cycle: Pseudo-Code of `$apply()`**
@@ -19052,7 +19052,7 @@ function $RootScopeProvider() {
        * registered listeners along the way. The event will stop propagating if one of the listeners
        * cancels it.
        *
-       * Any exception emitted from the {@link ng.$rootScope.Scope#$on listeners} will be passed
+       * Any exceptions emitted from the {@link ng.$rootScope.Scope#$on listeners} will be passed
        * onto the {@link ng.$exceptionHandler $exceptionHandler} service.
        *
        * @param {string} name Event name to emit.
@@ -19123,7 +19123,7 @@ function $RootScopeProvider() {
        * notified. Afterwards, the event propagates to all direct and indirect scopes of the current
        * scope and calls all registered listeners along the way. The event cannot be canceled.
        *
-       * Any exception emitted from the {@link ng.$rootScope.Scope#$on listeners} will be passed
+       * Any exceptions emitted from the {@link ng.$rootScope.Scope#$on listeners} will be passed
        * onto the {@link ng.$exceptionHandler $exceptionHandler} service.
        *
        * @param {string} name Event name to broadcast.
@@ -19767,7 +19767,7 @@ function $SceDelegateProvider() {
      * @param {*} maybeTrusted The result of a prior {@link ng.$sceDelegate#trustAs
      *     `$sceDelegate.trustAs`} call, or anything else (which will not be considered trusted.)
      * @return {*} A version of the value that's safe to use in the given context, or throws an
-     *     exception if this is impossible.
+     *     exceptions if this is impossible.
      */
     function getTrusted(type, maybeTrusted) {
       if (maybeTrusted === null || isUndefined(maybeTrusted) || maybeTrusted === '') {
@@ -19786,7 +19786,7 @@ function $SceDelegateProvider() {
         maybeTrusted = maybeTrusted.$$unwrapTrustedValue();
       }
 
-      // If we get here, then we will either sanitize the value or throw an exception.
+      // If we get here, then we will either sanitize the value or throw an exceptions.
       if (type === SCE_CONTEXTS.MEDIA_URL || type === SCE_CONTEXTS.URL) {
         // we attempt to sanitize non-resource URLs
         return $$sanitizeUri(maybeTrusted, type === SCE_CONTEXTS.MEDIA_URL);
@@ -20163,15 +20163,15 @@ function $SceProvider() {
    *
    * - getTrusted(contextEnum, value)
    *     This function should return the value that is safe to use in the context specified by
-   *     contextEnum or throw and exception otherwise.
+   *     contextEnum or throw and exceptions otherwise.
    *
    * NOTE: This contract deliberately does NOT state that values returned by trustAs() must be
    * opaque or wrapped in some holder object.  That happens to be an implementation detail.  For
    * instance, an implementation could maintain a registry of all trusted objects by context.  In
    * such a case, trustAs() would return the same object that was passed in.  getTrusted() would
    * return the same object passed in if it was found in the registry under a compatible context or
-   * throw an exception otherwise.  An implementation might only wrap values some of the time based
-   * on some criteria.  getTrusted() might return a value and not throw an exception for special
+   * throw an exceptions otherwise.  An implementation might only wrap values some of the time based
+   * on some criteria.  getTrusted() might return a value and not throw an exceptions for special
    * constants or objects even if not wrapped.  All such implementations fulfill this contract.
    *
    *
@@ -20352,7 +20352,7 @@ function $SceProvider() {
      * @description
      * Delegates to {@link ng.$sceDelegate#getTrusted `$sceDelegate.getTrusted`}.  As such,
      * takes any input, and either returns a value that's safe to use in the specified context,
-     * or throws an exception. This function is aware of trusted values created by the `trustAs`
+     * or throws an exceptions. This function is aware of trusted values created by the `trustAs`
      * function and its shorthands, and when contexts are appropriate, returns the unwrapped value
      * as-is. Finally, this function can also throw when there is no way to turn `maybeTrusted` in a
      * safe value (e.g., no sanitization is available or possible.)
@@ -20361,7 +20361,7 @@ function $SceProvider() {
      * @param {*} maybeTrusted The result of a prior {@link ng.$sce#trustAs
      *     `$sce.trustAs`} call, or anything else (which will not be considered trusted.)
      * @return {*} A version of the value that's safe to use in the given context, or throws an
-     *     exception if this is impossible.
+     *     exceptions if this is impossible.
      */
 
     /**
@@ -20660,7 +20660,7 @@ function $TemplateRequestProvider() {
    * The `$templateRequest` service runs security checks then downloads the provided template using
    * `$http` and, upon success, stores the contents inside of `$templateCache`. If the HTTP request
    * fails or the response data of the HTTP request is empty, a `$compile` error will be thrown (the
-   * exception can be thwarted by setting the 2nd parameter of the function to true). Note that the
+   * exceptions can be thwarted by setting the 2nd parameter of the function to true). Note that the
    * contents of `$templateCache` are trusted, so the call to `$sce.getTrustedUrl(tpl)` is omitted
    * when `tpl` is of type string and `$templateCache` has the matching entry.
    *
@@ -20674,7 +20674,7 @@ function $TemplateRequestProvider() {
    * templates.
    *
    * @param {string|TrustedResourceUrl} tpl The HTTP request template URL
-   * @param {boolean=} ignoreRequestError Whether or not to ignore the exception when the request fails or the template is empty
+   * @param {boolean=} ignoreRequestError Whether or not to ignore the exceptions when the request fails or the template is empty
    *
    * @return {Promise} a promise for the HTTP response data of the given URL.
    *

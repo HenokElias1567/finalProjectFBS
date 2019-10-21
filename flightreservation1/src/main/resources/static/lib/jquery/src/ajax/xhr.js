@@ -146,7 +146,7 @@ jQuery.ajaxTransport( function( options ) {
 
 				try {
 
-					// Do send the request (this may raise an exception)
+					// Do send the request (this may raise an exceptions)
 					xhr.send( options.hasContent && options.data || null );
 				} catch ( e ) {
 

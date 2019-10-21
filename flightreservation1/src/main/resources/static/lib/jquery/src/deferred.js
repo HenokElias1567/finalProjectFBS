@@ -220,7 +220,7 @@ jQuery.extend( {
 								process();
 							} else {
 
-								// Call an optional hook to record the stack, in case of exception
+								// Call an optional hook to record the stack, in case of exceptions
 								// since it's otherwise lost when execution goes async
 								if ( jQuery.Deferred.getStackHook ) {
 									process.stackTrace = jQuery.Deferred.getStackHook();
